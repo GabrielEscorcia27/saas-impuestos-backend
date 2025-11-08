@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sucursals",
+  "info": {
+    "singularName": "sucursal",
+    "pluralName": "sucursals",
+    "displayName": "Sucursal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "Direccion": {
+      "type": "string",
+      "required": true
+    },
+    "tienda": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tienda.tienda",
+      "inversedBy": "sucursals"
+    },
+    "inventarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventario.inventario",
+      "mappedBy": "sucursal"
+    }
+  }
+}

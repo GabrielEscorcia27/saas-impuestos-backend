@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tiendas",
+  "info": {
+    "singularName": "tienda",
+    "pluralName": "tiendas",
+    "displayName": "Tienda"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "RUC": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "owner"
+    },
+    "sucursals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sucursal.sucursal",
+      "mappedBy": "tienda"
+    },
+    "productos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producto.producto",
+      "mappedBy": "tienda"
+    }
+  }
+}

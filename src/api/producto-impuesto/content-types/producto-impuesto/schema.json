@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "producto_impuestos",
+  "info": {
+    "singularName": "producto-impuesto",
+    "pluralName": "producto-impuestos",
+    "displayName": "ProductoImpuesto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "porcentaje_aplicado": {
+      "type": "decimal",
+      "required": true
+    },
+    "producto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::producto.producto",
+      "inversedBy": "producto_impuestos"
+    },
+    "impuesto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::impuesto.impuesto",
+      "inversedBy": "producto_impuestos"
+    }
+  }
+}

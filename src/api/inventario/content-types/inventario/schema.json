@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inventarios",
+  "info": {
+    "singularName": "inventario",
+    "pluralName": "inventarios",
+    "displayName": "Inventario"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Stock": {
+      "type": "integer",
+      "required": true
+    },
+    "producto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::producto.producto",
+      "inversedBy": "inventarios"
+    },
+    "sucursal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sucursal.sucursal",
+      "inversedBy": "inventarios"
+    }
+  }
+}

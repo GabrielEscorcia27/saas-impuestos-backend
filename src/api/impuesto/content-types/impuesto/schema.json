@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "impuestos",
+  "info": {
+    "singularName": "impuesto",
+    "pluralName": "impuestos",
+    "displayName": "Impuesto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "producto_impuestos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producto-impuesto.producto-impuesto",
+      "mappedBy": "impuesto"
+    }
+  }
+}
