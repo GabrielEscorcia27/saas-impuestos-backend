@@ -1135,7 +1135,7 @@ export interface PluginUsersPermissionsUser
       }>;
   };
 }
-
+//
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
