@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Stock": {
+    "stock": {
       "type": "integer",
       "required": true
     },

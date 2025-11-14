@@ -11,11 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nombre": {
+    "nombre": {
       "type": "string",
       "required": true
     },
-    "RUC": {
+    "ruc": {
       "type": "string",
       "required": true,
       "unique": true

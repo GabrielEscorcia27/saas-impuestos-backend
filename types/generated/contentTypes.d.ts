@@ -450,7 +450,7 @@ export interface ApiImpuestoImpuesto extends Struct.CollectionTypeSchema {
       'api::impuesto.impuesto'
     > &
       Schema.Attribute.Private;
-    Nombre: Schema.Attribute.String &
+    nombre: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     producto_impuestos: Schema.Attribute.Relation<
@@ -486,7 +486,7 @@ export interface ApiInventarioInventario extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     producto: Schema.Attribute.Relation<'manyToOne', 'api::producto.producto'>;
     publishedAt: Schema.Attribute.DateTime;
-    Stock: Schema.Attribute.Integer & Schema.Attribute.Required;
+    stock: Schema.Attribute.Integer & Schema.Attribute.Required;
     sucursal: Schema.Attribute.Relation<'manyToOne', 'api::sucursal.sucursal'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -539,7 +539,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Identifica: Schema.Attribute.String &
+    identifica: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     inventarios: Schema.Attribute.Relation<
@@ -552,7 +552,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
       'api::producto.producto'
     > &
       Schema.Attribute.Private;
-    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
     precio_base: Schema.Attribute.Decimal & Schema.Attribute.Required;
     producto_impuestos: Schema.Attribute.Relation<
       'oneToMany',
@@ -580,7 +580,7 @@ export interface ApiSucursalSucursal extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Direccion: Schema.Attribute.String & Schema.Attribute.Required;
+    direccion: Schema.Attribute.String & Schema.Attribute.Required;
     inventarios: Schema.Attribute.Relation<
       'oneToMany',
       'api::inventario.inventario'
@@ -591,7 +591,7 @@ export interface ApiSucursalSucursal extends Struct.CollectionTypeSchema {
       'api::sucursal.sucursal'
     > &
       Schema.Attribute.Private;
-    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     tienda: Schema.Attribute.Relation<'manyToOne', 'api::tienda.tienda'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -620,10 +620,10 @@ export interface ApiTiendaTienda extends Struct.CollectionTypeSchema {
       'api::tienda.tienda'
     > &
       Schema.Attribute.Private;
-    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
     productos: Schema.Attribute.Relation<'oneToMany', 'api::producto.producto'>;
     publishedAt: Schema.Attribute.DateTime;
-    RUC: Schema.Attribute.String &
+    ruc: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     sucursals: Schema.Attribute.Relation<'oneToMany', 'api::sucursal.sucursal'>;
