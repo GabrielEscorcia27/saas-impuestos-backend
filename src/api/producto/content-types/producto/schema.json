@@ -11,11 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nombre": {
+    "nombre": {
       "type": "string",
       "required": true
     },
-    "Identifica": {
+    "identifica": {
       "type": "string",
       "required": true,
       "unique": true

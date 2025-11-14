@@ -11,11 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Nombre": {
+    "nombre": {
       "type": "string",
       "required": true
     },
-    "Direccion": {
+    "direccion": {
       "type": "string",
       "required": true
     },
