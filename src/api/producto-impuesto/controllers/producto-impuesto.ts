@@ -95,9 +95,3 @@ export default factories.createCoreController('api::producto-impuesto.producto-i
   },
 
 }));
-=======
-/**
- * producto-impuesto controller
- */
-
-import { factories } from '@strapi/strapi'
