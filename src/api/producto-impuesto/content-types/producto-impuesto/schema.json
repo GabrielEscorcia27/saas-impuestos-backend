@@ -15,15 +15,15 @@
       "type": "decimal",
       "required": true
     },
-    "producto": {
+    "productos": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::producto.producto",
       "inversedBy": "producto_impuestos"
     },
-    "impuesto": {
+    "impuestos": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::impuesto.impuesto",
       "inversedBy": "producto_impuestos"
     }

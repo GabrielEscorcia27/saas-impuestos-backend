@@ -22,9 +22,9 @@
     },
     "users_permissions_user": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "owner"
+      "inversedBy": "tiendas"
     },
     "sucursals": {
       "type": "relation",

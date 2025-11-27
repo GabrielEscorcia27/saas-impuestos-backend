@@ -66,9 +66,9 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "owner": {
+    "tiendas": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::tienda.tienda",
       "mappedBy": "users_permissions_user"
     }

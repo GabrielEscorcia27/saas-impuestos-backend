@@ -18,9 +18,9 @@
     },
     "producto_impuestos": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::producto-impuesto.producto-impuesto",
-      "mappedBy": "impuesto"
+      "mappedBy": "impuestos"
     }
   }
 }

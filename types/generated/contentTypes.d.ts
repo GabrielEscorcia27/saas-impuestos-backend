@@ -454,7 +454,7 @@ export interface ApiImpuestoImpuesto extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     producto_impuestos: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::producto-impuesto.producto-impuesto'
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -509,7 +509,10 @@ export interface ApiProductoImpuestoProductoImpuesto
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    impuesto: Schema.Attribute.Relation<'manyToOne', 'api::impuesto.impuesto'>;
+    impuestos: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::impuesto.impuesto'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -517,7 +520,10 @@ export interface ApiProductoImpuestoProductoImpuesto
     > &
       Schema.Attribute.Private;
     porcentaje_aplicado: Schema.Attribute.Decimal & Schema.Attribute.Required;
-    producto: Schema.Attribute.Relation<'manyToOne', 'api::producto.producto'>;
+    productos: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::producto.producto'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -539,6 +545,10 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }>;
     identifica: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -555,7 +565,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
     precio_base: Schema.Attribute.Decimal & Schema.Attribute.Required;
     producto_impuestos: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::producto-impuesto.producto-impuesto'
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -631,7 +641,7 @@ export interface ApiTiendaTienda extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     users_permissions_user: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
   };
@@ -1111,7 +1121,6 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
-    owner: Schema.Attribute.Relation<'oneToOne', 'api::tienda.tienda'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -1124,6 +1133,7 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    tiendas: Schema.Attribute.Relation<'oneToMany', 'api::tienda.tienda'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

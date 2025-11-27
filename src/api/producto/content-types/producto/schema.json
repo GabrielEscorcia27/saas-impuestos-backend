@@ -24,6 +24,10 @@
       "type": "decimal",
       "required": true
     },
+    "descripcion": {
+      "type": "text",
+      "maxLength": 150
+    },
     "tienda": {
       "type": "relation",
       "relation": "manyToOne",
@@ -32,9 +36,9 @@
     },
     "producto_impuestos": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::producto-impuesto.producto-impuesto",
-      "mappedBy": "producto"
+      "mappedBy": "productos"
     },
     "inventarios": {
       "type": "relation",
