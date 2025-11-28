@@ -503,7 +503,7 @@ export interface ApiProductoImpuestoProductoImpuesto
     singularName: 'producto-impuesto';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -539,6 +539,10 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     identifica: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
