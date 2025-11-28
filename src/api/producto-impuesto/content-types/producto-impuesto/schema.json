@@ -7,10 +7,16 @@
     "displayName": "ProductoImpuesto"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
+    "impuesto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::impuesto.impuesto",
+      "inversedBy": "producto_impuestos"
+    },
     "porcentaje_aplicado": {
       "type": "decimal",
       "required": true
@@ -19,12 +25,6 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::producto.producto",
-      "inversedBy": "producto_impuestos"
-    },
-    "impuesto": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::impuesto.impuesto",
       "inversedBy": "producto_impuestos"
     }
   }

@@ -41,6 +41,10 @@
       "relation": "oneToMany",
       "target": "api::inventario.inventario",
       "mappedBy": "producto"
+    },
+    "descripcion": {
+      "type": "text",
+      "maxLength": 200
     }
   }
 }
