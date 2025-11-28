@@ -608,7 +608,7 @@ export interface ApiTiendaTienda extends Struct.CollectionTypeSchema {
     singularName: 'tienda';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -631,7 +631,7 @@ export interface ApiTiendaTienda extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     users_permissions_user: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
   };
@@ -1111,7 +1111,7 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
-    owner: Schema.Attribute.Relation<'oneToOne', 'api::tienda.tienda'>;
+    owner: Schema.Attribute.Relation<'oneToMany', 'api::tienda.tienda'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{

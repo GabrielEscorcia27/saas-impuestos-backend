@@ -28,6 +28,8 @@ export default factories.createCoreController('api::producto-impuesto.producto-i
 
   async find(ctx) {
     const userId = ctx.state.user.id;
+    
+    // Filtro de seguridad
     ctx.query.filters = {
       ...((typeof ctx.query.filters === 'object' && ctx.query.filters !== null) ? ctx.query.filters : {}),
       producto: {
@@ -42,7 +44,9 @@ export default factories.createCoreController('api::producto-impuesto.producto-i
     try {
       const entities = await strapi.entityService.findMany('api::producto-impuesto.producto-impuesto', {
         ...ctx.query, 
-        filters: ctx.query.filters, 
+        filters: ctx.query.filters,
+        // CORRECCIÓN: Forzamos el populate de 'impuesto' para que siempre viaje el nombre
+        populate: ['impuesto'], 
       });
       
       const sanitizedEntities = await this.sanitizeOutput(entities, ctx);
@@ -55,7 +59,7 @@ export default factories.createCoreController('api::producto-impuesto.producto-i
       return ctx.internalServerError('Error al buscar impuestos de producto.', error.message);
     }
   },
-
+  
   async validateOwner(ctx, next) {
     const userId = ctx.state.user.id;
     const { id: productoImpuestoId } = ctx.params;
